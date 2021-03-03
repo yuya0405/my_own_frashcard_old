@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:my_own_frashcard/screens/home_screen.dart';
 
@@ -8,7 +10,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "私たちだけの単語帳",
-      theme: ThemeData.dark(),
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        fontFamily: "Lanobe",
+      ),
       home: HomeScreen(),
     );
   }

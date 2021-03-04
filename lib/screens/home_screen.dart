@@ -14,6 +14,12 @@ class _HomeScreenState extends State<HomeScreen> {
           children: <Widget>[
             Expanded(child: Image.asset("assets/images/image_title.png")),
             _titleText(),
+            Divider(
+              height: 30.0,
+              color: Colors.white,
+              indent: 8.0,
+              endIndent: 8.0,
+            ),
             Text(
                 "powered by oh884U8 2021",
                 style: TextStyle(fontFamily: "Mont"))

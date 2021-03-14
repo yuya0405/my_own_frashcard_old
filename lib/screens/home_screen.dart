@@ -27,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
               label: "確認テストをする",
               color: Colors.brown,
             ),
+            _radioButton(),
             ButtonWithIcon(
               onPressed: () => print("単語一覧"),
               icon: Icon(Icons.list),
@@ -48,6 +49,22 @@ class _HomeScreenState extends State<HomeScreen> {
         Text("私だけの単語帳", style: TextStyle(fontSize: 40.0),),
         Text("My Own Frashcard", style: TextStyle(fontSize: 24.0, fontFamily: "Mont"),),
       ],
+    );
+  }
+
+  Widget _radioButton() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 30.0),
+      child: Column(
+        children: [
+          RadioListTile(
+            title: Text("暗記済みの単語を除外する", style: TextStyle(fontSize: 16.0),),
+          ),
+          RadioListTile(
+            title: Text("暗記済みの単語を含む", style: TextStyle(fontSize: 16.0),),
+          ),
+        ],
+      ),
     );
   }
 }

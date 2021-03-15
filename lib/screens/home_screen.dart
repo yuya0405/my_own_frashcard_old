@@ -7,6 +7,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  bool isIncludedMemorizedWords = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,9 +61,13 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         children: [
           RadioListTile(
+            value: false,
+            groupValue : isIncludedMemorizedWords,
             title: Text("暗記済みの単語を除外する", style: TextStyle(fontSize: 16.0),),
           ),
           RadioListTile(
+            value: true,
+            groupValue : isIncludedMemorizedWords,
             title: Text("暗記済みの単語を含む", style: TextStyle(fontSize: 16.0),),
           ),
         ],

@@ -30,16 +30,21 @@ class _HomeScreenState extends State<HomeScreen> {
               label: "確認テストをする",
               color: Colors.brown,
             ),
+            SizedBox(height: 10.0,),
             _radioButton(),
+            SizedBox(height: 30.0,),
             ButtonWithIcon(
               onPressed: () => print("単語一覧"),
               icon: Icon(Icons.list),
               label: "単語一覧を見る",
               color: Colors.grey,
             ),
+            SizedBox(height: 60.0,),
             Text(
                 "powered by oh884U8 2021",
-                style: TextStyle(fontFamily: "Mont"))
+                style: TextStyle(fontFamily: "Mont"),
+            ),
+            SizedBox(height: 16.0)
           ]
         )
       ),
@@ -63,15 +68,24 @@ class _HomeScreenState extends State<HomeScreen> {
           RadioListTile(
             value: false,
             groupValue : isIncludedMemorizedWords,
+            onChanged: (value) => _onRadioSelected(value),
             title: Text("暗記済みの単語を除外する", style: TextStyle(fontSize: 16.0),),
           ),
           RadioListTile(
             value: true,
             groupValue : isIncludedMemorizedWords,
+            onChanged: (value) => _onRadioSelected(value),
             title: Text("暗記済みの単語を含む", style: TextStyle(fontSize: 16.0),),
           ),
         ],
       ),
     );
+  }
+
+  _onRadioSelected(value) {
+    setState(() {
+      isIncludedMemorizedWords = value;
+      print("$valueが選ばれた！");
+    });
   }
 }

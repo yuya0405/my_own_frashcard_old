@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_own_frashcard/parts/button_with_icon.dart';
+import 'package:my_own_frashcard/screens/word_list_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -34,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
             _radioButton(),
             SizedBox(height: 30.0,),
             ButtonWithIcon(
-              onPressed: () => print("単語一覧"),
+              onPressed: () => _setWordListScreen(context),
               icon: Icon(Icons.list),
               label: "単語一覧を見る",
               color: Colors.grey,
@@ -87,5 +88,9 @@ class _HomeScreenState extends State<HomeScreen> {
       isIncludedMemorizedWords = value;
       print("$valueが選ばれた！");
     });
+  }
+
+  _setWordListScreen(context) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => WordListScreen()));
   }
 }

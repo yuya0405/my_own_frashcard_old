@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_own_frashcard/parts/button_with_icon.dart';
+import 'package:my_own_frashcard/screens/TestScreen.dart';
 import 'package:my_own_frashcard/screens/word_list_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
               endIndent: 8.0,
             ),
             ButtonWithIcon(
-              onPressed: () => print("押した！"),
+              onPressed: () => _startTestScreen(context),
               icon: Icon(Icons.play_arrow),
               label: "確認テストをする",
               color: Colors.brown,
@@ -92,5 +93,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   _setWordListScreen(context) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => WordListScreen()));
+  }
+
+  _startTestScreen(BuildContext context) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => TestScreen(isIncludeMemorizedWords: isIncludedMemorizedWords,)));
   }
 }
